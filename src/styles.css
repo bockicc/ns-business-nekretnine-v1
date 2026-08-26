@@ -1,0 +1,184 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary-950: #04101f;
+  --color-primary-900: #061a30;
+  --color-primary-800: #0a2540;
+  --color-primary-700: #0f3358;
+  --color-primary-600: #154572;
+  --color-primary-500: #1d5a94;
+  --color-primary-400: #3e7cb8;
+  --color-primary-100: #dce7f1;
+
+  --color-gold-700: #8a6a22;
+  --color-gold-600: #b08d3f;
+  --color-gold-500: #c9a24b;
+  --color-gold-100: #f7efdc;
+
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #f7f8fa;
+  --color-neutral-100: #f0f2f5;
+  --color-neutral-200: #e2e5ea;
+  --color-neutral-300: #c7ccd4;
+  --color-neutral-500: #8a93a1;
+  --color-neutral-700: #5b6472;
+  --color-neutral-900: #10151c;
+  --color-neutral-inverse: #ffffff;
+
+  --color-status-sale-bg: #e8f5ee;
+  --color-status-sale-text: #1e8e5a;
+  --color-status-sale-border: #bfe6d2;
+
+  --color-status-rent-bg: #e7effa;
+  --color-status-rent-text: #1d5a94;
+  --color-status-rent-border: #c7dcf3;
+
+  --color-status-pending-bg: #fef3e2;
+  --color-status-pending-text: #b45309;
+  --color-status-pending-border: #f6ddaf;
+
+  --color-status-closed-bg: #f1f2f4;
+  --color-status-closed-text: #5b6472;
+  --color-status-closed-border: #dadee4;
+
+  --color-status-new-bg: #f7efdc;
+  --color-status-new-text: #8a6a22;
+  --color-status-new-border: #ead7a6;
+
+  --color-danger-100: #fbeae9;
+  --color-danger-600: #b42318;
+
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 1px 2px 0 rgb(6 26 48 / 0.06), 0 1px 3px 0 rgb(6 26 48 / 0.08);
+  --shadow-card-hover: 0 8px 20px -4px rgb(6 26 48 / 0.14),
+    0 2px 6px -1px rgb(6 26 48 / 0.08);
+  --shadow-sticky-nav: 0 1px 0 0 rgb(6 26 48 / 0.08);
+  --shadow-modal: 0 24px 48px -12px rgb(6 26 48 / 0.35);
+  --shadow-focus-ring: 0 0 0 3px rgb(29 90 148 / 0.35);
+
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+
+  --animate-fade-in: fade-in 200ms ease-out;
+  --animate-overlay-in: overlay-in 200ms ease-out;
+  --animate-content-in: content-in 200ms ease-out;
+  --animate-slide-up: slide-up 300ms cubic-bezier(0.32, 0.72, 0, 1);
+  --animate-slide-in-right: slide-in-right 300ms cubic-bezier(0.32, 0.72, 0, 1);
+  --animate-bookmark-pop: bookmark-pop 200ms ease-in-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes overlay-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes content-in {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -46%) scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes bookmark-pop {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.25);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-neutral-50);
+    color: var(--color-neutral-900);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-gold-100);
+    color: var(--color-primary-950);
+  }
+}
+
+@utility container-page {
+  box-sizing: border-box;
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1rem;
+
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+
+  @media (min-width: 1280px) {
+    padding-inline: 3rem;
+  }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

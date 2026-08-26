@@ -1,0 +1,8 @@
+{
+  "id": "ns-business-nekretnine",
+  "name": "NS Business Consulting — Nekretnine",
+  "subdomain": "ns-nekretnine",
+  "framework": "tanstack-start",
+  "designSystem": "editorial-navy-bridge-gold",
+  "vertical": "real-estate"
+}

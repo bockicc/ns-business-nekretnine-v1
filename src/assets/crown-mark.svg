@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-label="Kruna">
+  <path d="M8 34 L6 15 L16.5 23.5 L24 10 L31.5 23.5 L42 15 L40 34 Z" fill="#B08D3F"/>
+  <rect x="9" y="36" width="30" height="4.5" rx="1.5" fill="#B08D3F"/>
+  <circle cx="24" cy="7.5" r="2.6" fill="#C9A24B"/>
+  <circle cx="6" cy="12.5" r="2.2" fill="#C9A24B"/>
+  <circle cx="42" cy="12.5" r="2.2" fill="#C9A24B"/>
+</svg>
