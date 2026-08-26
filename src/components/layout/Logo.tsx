@@ -10,7 +10,7 @@ export function Logo({ inverse = false, className }: { inverse?: boolean; classN
     >
       <span className="size-10 shrink-0 overflow-hidden rounded-full inline-flex items-center justify-center">
         <img
-          src="./ns-business-logo.png"
+          src={`${import.meta.env.BASE_URL}ns-business-logo.png`}
           alt="NS Business Consulting logo"
           className="size-full object-cover"
           style={{ clipPath: 'circle(50% at 50% 50%)' }}

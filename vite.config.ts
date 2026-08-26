@@ -3,7 +3,7 @@ import viteReact from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  base: './',
+  base: '/ns-business-nekretnine-v1/',
   server: {
     port: 3000,
   },
