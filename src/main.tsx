@@ -16,12 +16,15 @@ const queryClient = new QueryClient({
   },
 });
 
+const hashHistory = createHashHistory();
+
 const router = createRouter({
   routeTree,
   context: { queryClient },
   defaultPreload: 'intent',
   scrollRestoration: true,
-  history: createHashHistory(),
+  history: hashHistory,
+  basepath: '/ns-business-nekretnine-v1',
 });
 
 declare module '@tanstack/react-router' {
