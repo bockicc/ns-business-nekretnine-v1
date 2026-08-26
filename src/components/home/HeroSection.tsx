@@ -18,7 +18,7 @@ export function HeroSection() {
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/ns-business-nekretnine-v1/hero-bg.jpg)' }}
+        style={{ backgroundImage: 'url(./hero-bg.jpg)' }}
       />
       <div
         aria-hidden="true"

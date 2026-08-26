@@ -16,14 +16,12 @@ const queryClient = new QueryClient({
   },
 });
 
-const hashHistory = createHashHistory();
-
 const router = createRouter({
   routeTree,
   context: { queryClient },
   defaultPreload: 'intent',
   scrollRestoration: true,
-  history: hashHistory,
+  history: createHashHistory(),
 });
 
 declare module '@tanstack/react-router' {
