@@ -1,4 +1,3 @@
-import { createServerFn } from '@tanstack/react-start';
 import type { FilterState } from '@/domain/filters';
 import type { Property } from '@/domain/property';
 import {
@@ -8,21 +7,18 @@ import {
   queryRelatedProperties,
 } from '@/lib/queryProperties';
 
-export const listPropertiesFn = createServerFn({ method: 'GET' })
-  .validator((input: FilterState) => input)
-  .handler(({ data }) => queryProperties(data));
+export function listPropertiesFn(filters: FilterState) {
+  return queryProperties(filters);
+}
 
-export const featuredPropertiesFn = createServerFn({ method: 'GET' })
-  .validator((input: number | undefined) => input ?? 6)
-  .handler(({ data }) => queryFeaturedProperties(data));
+export function featuredPropertiesFn(limit: number = 6) {
+  return queryFeaturedProperties(limit);
+}
 
-export const propertyBySlugFn = createServerFn({ method: 'GET' })
-  .validator((input: string) => input)
-  .handler(({ data }) => queryPropertyBySlug(data));
+export function propertyBySlugFn(slug: string) {
+  return queryPropertyBySlug(slug);
+}
 
-export const relatedPropertiesFn = createServerFn({ method: 'GET' })
-  .validator((input: { slug: string; limit?: number }) => input)
-  .handler(
-    ({ data }): Promise<Property[]> =>
-      queryRelatedProperties(data.slug, data.limit ?? 6),
-  );
+export function relatedPropertiesFn(input: { slug: string; limit?: number }): Promise<Property[]> {
+  return queryRelatedProperties(input.slug, input.limit ?? 6);
+}

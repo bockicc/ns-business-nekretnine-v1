@@ -1,10 +1,8 @@
 import '../styles.css';
-import { Outlet, createRootRouteWithContext, HeadContent, Link } from '@tanstack/react-router';
+import { Outlet, createRootRouteWithContext, Link } from '@tanstack/react-router';
 import type { QueryClient } from '@tanstack/react-query';
-import { QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from 'sonner';
 import { siteConfig } from '@/data/site';
-import { buildPageMeta } from '@/lib/seo';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { BackToTop } from '@/components/layout/BackToTop';
@@ -16,52 +14,23 @@ interface RouterContext {
 }
 
 export const Route = createRootRouteWithContext<RouterContext>()({
-  head: () => ({
-    meta: [
-      { charSet: 'utf-8' },
-      { title: 'NS Business Consulting | Krediti, nekretnine, posao i biznis' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      ...buildPageMeta({}),
-    ],
-    links: [
-      { rel: 'icon', type: 'image/png', href: '/ns-business-logo.png?v=10' },
-      { rel: 'apple-touch-icon', type: 'image/png', href: '/ns-business-logo.png?v=10' },
-      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400..700&display=swap',
-      },
-    ],
-  }),
   errorComponent: RootError,
   notFoundComponent: RootNotFound,
   component: RootLayout,
 });
 
 function RootLayout() {
-  const { queryClient } = Route.useRouteContext();
-
   return (
-    <QueryClientProvider client={queryClient}>
-      <CompareProvider>
-        <html lang="sr-RS" className="overflow-x-hidden">
-          <head>
-            <HeadContent />
-          </head>
-          <body className="min-h-dvh overflow-x-hidden bg-neutral-50 font-body text-neutral-900 antialiased">
-            <Header />
-            <main id="sadrzaj">
-              <Outlet />
-            </main>
-            <Footer />
-            <BackToTop />
-            <CompareDrawer />
-            <Toaster position="bottom-right" />
-          </body>
-        </html>
-      </CompareProvider>
-    </QueryClientProvider>
+    <CompareProvider>
+      <Header />
+      <main id="sadrzaj">
+        <Outlet />
+      </main>
+      <Footer />
+      <BackToTop />
+      <CompareDrawer />
+      <Toaster position="bottom-right" />
+    </CompareProvider>
   );
 }
 

@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from '@tanstack/react-router';
+import { createFileRoute, notFound, Link } from '@tanstack/react-router';
 import type { Property } from '@/domain/property';
 import { propertyDetailQueryOptions, relatedPropertiesQueryOptions } from '@/lib/propertyQueryOptions';
 import { buildPageMeta, propertyTitle } from '@/lib/seo';
@@ -47,11 +47,11 @@ function DetailPage() {
         <nav aria-label="Putanja" className="mb-6 text-sm text-neutral-500">
           <ol className="flex flex-wrap items-center gap-1.5">
             <li>
-              <a href="/" className="transition-colors hover:text-primary-900">Početna</a>
+              <Link to="/" className="transition-colors hover:text-primary-900">Početna</Link>
             </li>
             <li aria-hidden="true" className="text-neutral-300">/</li>
             <li>
-              <a href="/nekretnine" className="transition-colors hover:text-primary-900">Nekretnine</a>
+              <Link to="/nekretnine" className="transition-colors hover:text-primary-900">Nekretnine</Link>
             </li>
             <li aria-hidden="true" className="text-neutral-300">/</li>
             <li aria-current="page" className="max-w-[16rem] truncate font-medium text-primary-900">

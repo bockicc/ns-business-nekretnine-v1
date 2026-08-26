@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { Link } from '@tanstack/react-router';
 import { Trash2, X } from 'lucide-react';
 import type { Property } from '@/domain/property';
 import { PROPERTIES } from '@/data/properties.mock';
@@ -69,8 +70,8 @@ export function CompareDrawer() {
             <Trash2 className="mr-1 inline size-3.5" aria-hidden="true" />
             Obriši
           </button>
-          <a
-            href="/poredjenje"
+          <Link
+            to="/poredjenje"
             aria-disabled={count < 2}
             tabIndex={count < 2 ? -1 : undefined}
             className={cn(
@@ -81,7 +82,7 @@ export function CompareDrawer() {
             )}
           >
             Uporedi
-          </a>
+          </Link>
         </div>
       </div>
     </div>

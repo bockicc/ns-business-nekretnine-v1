@@ -13,7 +13,7 @@ const STALE_TIME_MS = 60_000;
 export function propertyListQueryOptions(filters: FilterState) {
   return queryOptions({
     queryKey: ['properties', 'list', serializeFilterState(filters)] as const,
-    queryFn: () => listPropertiesFn({ data: filters }),
+    queryFn: () => listPropertiesFn(filters),
     staleTime: STALE_TIME_MS,
     placeholderData: (previous) => previous,
   });
@@ -22,7 +22,7 @@ export function propertyListQueryOptions(filters: FilterState) {
 export function featuredPropertiesQueryOptions(limit = 6) {
   return queryOptions({
     queryKey: ['properties', 'featured', limit] as const,
-    queryFn: () => featuredPropertiesFn({ data: limit }),
+    queryFn: () => featuredPropertiesFn(limit),
     staleTime: STALE_TIME_MS,
   });
 }
@@ -30,7 +30,7 @@ export function featuredPropertiesQueryOptions(limit = 6) {
 export function propertyDetailQueryOptions(slug: string) {
   return queryOptions({
     queryKey: ['properties', 'detail', slug] as const,
-    queryFn: () => propertyBySlugFn({ data: slug }),
+    queryFn: () => propertyBySlugFn(slug),
     staleTime: STALE_TIME_MS,
   });
 }
@@ -38,7 +38,7 @@ export function propertyDetailQueryOptions(slug: string) {
 export function relatedPropertiesQueryOptions(slug: string, limit = 6) {
   return queryOptions({
     queryKey: ['properties', 'related', slug, limit] as const,
-    queryFn: () => relatedPropertiesFn({ data: { slug, limit } }),
+    queryFn: () => relatedPropertiesFn({ slug, limit }),
     staleTime: STALE_TIME_MS,
   });
 }

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Building2, Calculator, ChevronDown, Handshake, Menu, Scale } from 'lucide-react';
+import { Link } from '@tanstack/react-router';
 import { siteConfig } from '@/data/site';
 import { useScrollThreshold } from '@/hooks/useScrollThreshold';
 import { cn } from '@/lib/utils';
@@ -129,12 +130,12 @@ export function Header() {
 
         <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-3">
           <HeaderSearch />
-          <a
-            href="/oglasite-nekretninu"
+          <Link
+            to="/oglasite-nekretninu"
             className="hidden whitespace-nowrap rounded-md bg-gold-600 px-4 py-2 text-sm font-semibold text-primary-950 transition-colors hover:bg-gold-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 sm:inline-flex sm:px-5 lg:px-6"
           >
             Izaberite uslugu
-          </a>
+          </Link>
           <button
             type="button"
             onClick={() => setDrawerOpen(true)}

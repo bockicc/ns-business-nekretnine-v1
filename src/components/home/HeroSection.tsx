@@ -1,4 +1,5 @@
 import { ArrowRight, Building2, FileText, MapPin, Phone } from 'lucide-react';
+import { Link } from '@tanstack/react-router';
 import { siteConfig } from '@/data/site';
 import { Button } from '@/components/ui/button';
 
@@ -17,7 +18,7 @@ export function HeroSection() {
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/hero-bg.jpg)' }}
+        style={{ backgroundImage: 'url(/ns-business-nekretnine-v1/hero-bg.jpg)' }}
       />
       <div
         aria-hidden="true"
@@ -61,12 +62,12 @@ export function HeroSection() {
                 Pronađite nekretninu
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Button>
-              <a
-                href="/oglasite-nekretninu"
-                className="inline-flex h-12 items-center justify-center rounded-md border border-white/30 px-6 text-base font-semibold text-white transition-colors hover:border-gold-500 hover:text-gold-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500"
-              >
-                Oglasite nekretninu
-              </a>
+               <Link
+                 to="/oglasite-nekretninu"
+                 className="inline-flex h-12 items-center justify-center rounded-md border border-white/30 px-6 text-base font-semibold text-white transition-colors hover:border-gold-500 hover:text-gold-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500"
+               >
+                 Oglasite nekretninu
+               </Link>
             </div>
           </div>
 
@@ -85,9 +86,9 @@ export function HeroSection() {
               </div>
               <div className="space-y-2">
                 {QUICK_LINKS.map((link) => (
-                  <a
+                  <Link
                     key={link.href}
-                    href={link.href}
+                    to={link.href}
                     className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/5 px-4 py-3 transition-colors hover:border-gold-600/30 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500"
                   >
                     <link.icon className="size-4 shrink-0 text-gold-500" aria-hidden="true" />
@@ -95,7 +96,7 @@ export function HeroSection() {
                       <p className="text-sm font-semibold text-white">{link.label}</p>
                       <p className="text-xs text-white/60">{link.desc}</p>
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
               <a

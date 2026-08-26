@@ -102,12 +102,12 @@ export function CompareMatrix() {
         <p className="mt-3 text-neutral-600">
           Vratite se na katalog i izaberite nekretnine koje želite da uporedite.
         </p>
-        <a
-          href="/nekretnine"
+        <Link
+          to="/nekretnine"
           className={buttonVariants({ variant: 'primary', className: 'mt-6' })}
         >
           Pregledaj katalog
-        </a>
+        </Link>
       </Container>
     );
   }
