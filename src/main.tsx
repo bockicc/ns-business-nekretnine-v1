@@ -24,7 +24,6 @@ const router = createRouter({
   defaultPreload: 'intent',
   scrollRestoration: true,
   history: hashHistory,
-  basepath: '/ns-business-nekretnine-v1',
 });
 
 declare module '@tanstack/react-router' {
